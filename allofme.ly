@@ -25,7 +25,7 @@
 }
 
 title = #"All Of Me"
-composer = #"-Simons & Marks"
+composer = #"Simons & Marks"
 meter = #"(Med. Swing)"
 
 realBookTitle = \markup {
@@ -40,7 +40,7 @@ realBookTitle = \markup {
           \override #'(offset . 7)
           \override #'(thickness . 6)
           \underline \sans #title
-          \fontsize #1 \lower #1 \concat { #composer " " }
+          \fontsize #1 \lower #1 \concat { "-" #composer " " }
         }
       }
       s
@@ -56,7 +56,16 @@ realBookTitle = \markup {
 }
 
 \header {
+  pdftitle = \title
   title = \realBookTitle
+  source = "http://leighverlag.blogspot.com/2015/12/mimicking-real-book-look.html"
+  author = \markup \fromproperty #'header:composer
+  subject = \markup \concat { \fromproperty #'header:pdftitle " Jazz Partition" }
+  keywords = #(string-join '(
+    "music"
+    "partition"
+    "jazz"
+  ) ", ")
   tagline = ##f
 }
 
