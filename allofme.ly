@@ -63,7 +63,7 @@ realBookTitle = \markup {
 theNotes = \relative c' {
   \set Staff.midiInstrument = "flute"
   \key c \major
-  \showStartRepeatBar \bar "[|:"
+  \bar "[|:"
   \repeat volta 2 {
     c'4 g8 e ~ e2 ~ |
     e2 \tuplet 3/2 { c'4 d c } |
