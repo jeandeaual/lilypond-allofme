@@ -26,7 +26,7 @@
                              (padding . 1))
 }
 
-title = #"All Of Me"
+title = #"All of Me"
 composer = #"Simons & Marks"
 meter = #"(Med. Swing)"
 
@@ -37,12 +37,12 @@ realBookTitle = \markup {
       s4
       s^\markup {
         \fill-line {
-          \fontsize #1 \lower #1 \rotate #7 \concat { " " #meter }
+          \fontsize #1 \lower #1 \rotate #7 \concat { " " #(string-upcase meter) }
           \fontsize #8
           \override #'(offset . 7)
           \override #'(thickness . 6)
-          \underline \sans #title
-          \fontsize #1 \lower #1 \concat { "-" #composer " " }
+          \underline \sans #(string-upcase title)
+          \fontsize #1 \lower #1 \concat { "- " #(string-upcase composer) " " }
         }
       }
       s
