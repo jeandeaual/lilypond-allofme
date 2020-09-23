@@ -1,5 +1,7 @@
-\version "2.19.31"
+\version "2.20.0"
+
 #(set-global-staff-size 18)
+
 \include "jazzchords.ily"
 \include "lilyjazz.ily"
 
@@ -16,7 +18,7 @@
   indent = 0\mm
   between-system-space = 2.5\cm
   between-system-padding = #0
-  %%set to ##t if your score is less than one page:
+  % Set to ##t if your score is less than one page:
   ragged-last-bottom = ##f
   ragged-bottom = ##f
   markup-system-spacing = #'((basic-distance . 23)
@@ -181,11 +183,11 @@ theWords = \lyricmode {
     \new Lyrics \lyricsto vocals \theWords
   >>
   \layout {
-    % make only the first clef visible
+    % Make only the first clef visible
     \override Score.Clef #'break-visibility = #'#(#f #f #f)
-    % make only the first time signature visible
+    % Make only the first time signature visible
     \override Score.KeySignature #'break-visibility = #'#(#f #f #f)
-    % allow single-staff system bars
+    % Allow single-staff system bars
     \override Score.SystemStartBar #'collapse-height = #1
     \override LyricHyphen.thickness = #4
     \override Score.VoltaBracket.font-name = #"Pea Missy with a Marker"
