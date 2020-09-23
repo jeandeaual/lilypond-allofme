@@ -41,7 +41,7 @@ realBookTitle = \markup {
           \fontsize #8
           \override #'(offset . 7)
           \override #'(thickness . 6)
-          \underline \sans #(string-upcase title)
+          \underline \sans \concat { "  " #(string-upcase title) "  " }
           \fontsize #1 \lower #1 \concat { "- " #(string-upcase composer) " " }
         }
       }
