@@ -127,12 +127,12 @@ theNotes = \relative c' {
 
 theChords = \chordmode {
   \repeat volta 2 {
-    c1:maj c1:maj e:7 e:7 |
-    a:7 a:7 d:m7 d:m7 |
-    e:7 e:7 a:m7 a:m7 |
-    d:7 d:7 d:m7 g:7 |
-    c1:maj c1:maj e:7 e:7 |
-    a:7 a:7 d:m7 d:m7 |
+    c1:maj q e:7 q |
+    a:7 q d:m7 q |
+    e:7 q a:m7 q |
+    d:7 q d:m7 g:7 |
+    c1:maj q e:7 q |
+    a:7 q d:m7 q |
   }
   \alternative {
     {
@@ -178,7 +178,7 @@ theWords = \lyricmode {
 
 \score {
   <<
-    \new ChordNames \theChords
+    \new ChordNames { \set chordChanges = ##t \theChords }
     \new Voice = vocals \theNotes
     \new Lyrics \lyricsto vocals \theWords
   >>
