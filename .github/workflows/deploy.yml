@@ -1,16 +1,22 @@
-name: build
+name: deploy
 on:
-  pull_request:
+  push:
     branches:
       - master
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+      - name: Checkout the Jekyll template
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          path: build
+          repository: jeandeaual/lilypond-jekyll-template
       - name: Make the output directories
         run: mkdir -p build/{a4,letter,midi}
       - name: Build A4 PDF
@@ -43,3 +49,14 @@ jobs:
         with:
           name: midi-${{ steps.slug.outputs.sha7 }}
           path: build/midi
+      - name: Update the Jekyll config
+        uses: mikefarah/yq@3.4.0
+        with:
+          cmd: yq w -i -s config.yml build/_config.yml
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.6.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
+          CLEAN: true
