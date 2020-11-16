@@ -27,7 +27,7 @@
 }
 
 title = #"All of Me"
-composer = #"Simons & Marks"
+composer = #"Marks & Simons"
 meter = #"(Med. Swing)"
 
 realBookTitle = \markup {
@@ -61,7 +61,8 @@ realBookTitle = \markup {
   pdftitle = \title
   title = \realBookTitle
   source = "http://leighverlag.blogspot.com/2015/12/mimicking-real-book-look.html"
-  author = \markup \fromproperty #'header:composer
+  pdfcomposer = "Gerald Marks & Seymour Simons"
+  author = \markup \fromproperty #'header:pdfcomposer
   subject = \markup \concat { \fromproperty #'header:pdftitle " Jazz Partition" }
   keywords = #(string-join '(
     "music"
